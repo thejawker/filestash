@@ -5,7 +5,8 @@ var backend = {
     dropbox: require('./backend/dropbox'),
     gdrive: require('./backend/gdrive'),
     s3: require('./backend/s3'),
-    git: require('./backend/git')
+    git: require('./backend/git'),
+    mysql: require('./backend/mysql')
 };
 
 exports.cat = function(path, params, res){

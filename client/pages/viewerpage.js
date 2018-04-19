@@ -4,7 +4,7 @@ import Path from 'path';
 import { Files } from '../model/';
 import { BreadCrumb, Bundle, NgIf, Loader, Container, EventReceiver, EventEmitter } from '../components/';
 import { debounce, opener, screenHeight, notify } from '../helpers/';
-import { AudioPlayer, FileDownloader, ImageViewer, PDFViewer } from './viewerpage/';
+import { AudioPlayer, FileDownloader, ImageViewer, PDFViewer, FormBuilder } from './viewerpage/';
 
 const VideoPlayer = (props) => (
     <Bundle loader={import(/* webpackChunkName: "video" */"../pages/viewerpage/videoplayer")} symbol="VideoPlayer">
@@ -22,7 +22,7 @@ export class ViewerPage extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            path: props.match.url.replace('/view', '') + (location.hash || ""),
+            path: props.match.url.replace('/view', '') + (window.location.hash || ""),
             url: null,
             filename: Path.basename(props.match.url.replace('/view', '')) || 'untitled.dat',
             opener: null,
@@ -152,6 +152,9 @@ export class ViewerPage extends React.Component {
                   </NgIf>
                   <NgIf cond={this.state.opener === 'download'} style={style}>
                     <FileDownloader data={this.state.url} filename={this.state.filename} />
+                  </NgIf>
+                  <NgIf cond={this.state.opener === 'form'} style={style}>
+                    <FormBuilder data={this.state.url} filename={this.state.filename} />
                   </NgIf>
                 </NgIf>
                 <NgIf cond={this.state.loading === true}>

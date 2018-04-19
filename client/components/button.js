@@ -12,7 +12,7 @@ export class Button extends React.Component {
         let props = Object.assign({}, this.props);
         delete props.theme;
         return (
-            <button {...props} className={this.props.theme || '' +" "+this.props.className || ''}>
+            <button {...props} className={"component_button "+(this.props.theme || '')+" "+(this.props.className || '')}>
               {this.props.children}
             </button>
         );

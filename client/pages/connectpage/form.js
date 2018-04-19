@@ -309,6 +309,22 @@ export class Form extends React.Component {
                     </NgIf>
                     <Button type="submit" theme="emphasis">CONNECT</Button>
                   </NgIf>
+                  <NgIf cond={this.state.type === 'mysql'}>
+                    <NgIf cond={this.should_appear('mysql', 'hostname')}>
+                      <Input type={this.input_type('mysql', 'hostname')} name="hostname" placeholder="Hostname*" ref={(input) => {this.state.refs.mysql_hostname = input; }} autoComplete="new-password" />
+                    </NgIf>
+                    <NgIf cond={this.should_appear('mysql', 'username')}>
+                      <Input type={this.input_type('mysql', 'username')} name="username" placeholder="Username*" ref={(input) => {this.state.refs.mysql_username = input; }} autoComplete="new-password" />
+                    </NgIf>
+                    <NgIf cond={this.should_appear('mysql', 'password')}>
+                      <Input type={this.input_type('mysql', 'password')} name="password" placeholder="Password*" ref={(input) => {this.state.refs.mysql_password = input; }} autoComplete="new-password" />
+                    </NgIf>
+                    <NgIf cond={this.should_appear('mysql', 'port')}>
+                      <Input type={this.input_type('mysql', 'port')} name="port" placeholder="Port*" ref={(input) => {this.state.refs.mysql_port = input; }} autoComplete="new-password" />
+                    </NgIf>
+                    <Input type="hidden" name="type" value="mysql"/>
+                    <Button type="submit" theme="emphasis">CONNECT</Button>
+                  </NgIf>
                   <NgIf cond={this.state.type === 'dropbox'} className="third-party">
                     <a target="_blank" href={this.state.dropbox_url}>
                       <div onClick={this.redirect_dropbox.bind(this)}>

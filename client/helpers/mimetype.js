@@ -24,6 +24,8 @@ export function opener(file){
         return 'audio';
     }else if(['video/webm', 'video/mp4', 'application/ogg'].indexOf(mime) !== -1){
         return 'video';
+    }else if(mime === 'application/xform'){
+        return 'form';
     }else{
         return 'download';
     }
@@ -212,5 +214,6 @@ const db = {
     "asx": "video/x-ms-asf",
     "asf": "video/x-ms-asf",
     "wmv": "video/x-ms-wmv",
-    "avi": "video/x-msvideo"
+    "avi": "video/x-msvideo",
+    "form": "application/xform"
 }

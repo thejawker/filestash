@@ -18,6 +18,13 @@ module.exports = {
             // advanced: false,
             // path: '/home'
         },
+        mysql: {
+            label: 'Mysql',
+            hostname: '127.0.0.1',
+            username: 'vcampus',
+            password: 'LyElTP2dqEhVLQy3EVui',
+            port: '3306'
+        },
         ftp: {
             label: 'FTP',
             // hostname: 'ftp.example.com',
