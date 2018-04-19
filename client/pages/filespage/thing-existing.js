@@ -245,10 +245,11 @@ const DateTime = (props) => {
         }
         if(timestamp){
             let t = new Date(timestamp);
-            return padding(t.getDate()) + '/'+ padding(t.getMonth()) + '/' + padding(t.getFullYear());
-        }else{
-            return '';
+            if(t.getTime() > 0){
+                return padding(t.getDate()) + '/'+ padding(t.getMonth()) + '/' + padding(t.getFullYear());
+            }
         }
+        return '';
     }
 
     return (
