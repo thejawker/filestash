@@ -14,3 +14,4 @@ export { gid, randomString } from './random';
 export { leftPad, copyToClipboard } from './common';
 export { getMimeType } from './mimetype';
 export { settings_get, settings_put } from './settings';
+export { FormObjToJSON } from './form';

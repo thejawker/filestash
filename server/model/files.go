@@ -9,26 +9,28 @@ import (
 
 func NewBackend(ctx *App, conn map[string]string) (IBackend, error) {
 	isAllowed := func() bool {
-		ret := false
-		var conns [] struct {
-			Type     string `json:"type"`
-			Hostname string `json:"hostname"`
-			Path     string `json:"path"`
-		}
-		ctx.Config.Get("connections").Scan(&conns)
-		for i := range conns {
-			if conns[i].Type == conn["type"] {
-				if conns[i].Hostname != "" && conns[i].Hostname != conn["hostname"] {
-					continue
-				} else if conns[i].Path != "" && conns[i].Path != conn["path"] {
-					continue
-				} else {
-					ret = true
-					break
-				}
-			}
-		}
-		return ret
+		return true
+		// ret := false
+		// var conns [] struct {
+		// 	Type     string `json:"type"`
+		// 	Hostname string `json:"hostname"`
+		// 	Path     string `json:"path"`
+		// }
+		// Config.Get("connections").Interface()
+		// Config.Get("connections").Scan(&conns)
+		// for i := range conns {
+		// 	if conns[i].Type == conn["type"] {
+		// 		if conns[i].Hostname != "" && conns[i].Hostname != conn["hostname"] {
+		// 			continue
+		// 		} else if conns[i].Path != "" && conns[i].Path != conn["path"] {
+		// 			continue
+		// 		} else {
+		// 			ret = true
+		// 			break
+		// 		}
+		// 	}
+		// }
+		// return ret
 	}()
 
 	if isAllowed == false {
